@@ -27,7 +27,7 @@
 // 	if ( isLampadinaAccesa ) {
 // 		image.src = "./img/white_lamp.png";
 // 		button.innerText = "Accendi lampadina";
-		
+
 // 	} else {
 // 		image.src = "./img/yellow_lamp.png";
 // 		button.innerText = "Spegni lampadina";
@@ -39,23 +39,43 @@
 
 /******************* versione con classi **********************/
 
+// const button = document.getElementById("button-toggle");
+// const image = document.getElementById("image-bulb");
+
+// button.addEventListener("click", function () {
+// 	const isLampadinaAccesa = image.classList.contains("on");
+// 	// debugger;
+// 	console.log("Bottone cliccato!", isLampadinaAccesa);
+
+// 	if (isLampadinaAccesa) {
+// 		image.src = "./img/white_lamp.png";
+// 		button.innerText = "Accendi lampadina";
+// 	} else {
+// 		image.src = "./img/yellow_lamp.png";
+// 		button.innerText = "Spegni lampadina";
+// 	}
+
+// 	image.classList.toggle("on");
+
+// });
+
+/********************** versione con data-attributes **********/
+
 const button = document.getElementById("button-toggle");
 const image = document.getElementById("image-bulb");
 
-button.addEventListener("click", function() {
-	const isLampadinaAccesa = image.classList.contains("on");
-	// debugger;
-	console.log("Bottone cliccato!", isLampadinaAccesa);
+button.addEventListener("click", function () {
+	debugger;
+	console.log("Bottone cliccato!", image.dataset.accensione);
 
-	if ( isLampadinaAccesa ) {
+	if ( image.dataset.accensione === "true" ) {
 		image.src = "./img/white_lamp.png";
 		button.innerText = "Accendi lampadina";
-		
+		image.dataset.accensione = false;
 	} else {
 		image.src = "./img/yellow_lamp.png";
 		button.innerText = "Spegni lampadina";
+		image.dataset.accensione = true;
 	}
-
-	image.classList.toggle("on");
 
 });
